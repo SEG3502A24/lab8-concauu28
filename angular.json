@@ -13,9 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": {
-              "base": "dist/employee-app"
-            },
+            "outputPath": "dist/employee-app",
             "index": "src/index.html",
             "polyfills": [
               "zone.js"
@@ -51,20 +49,22 @@
             "development": {
               "optimization": false,
               "extractLicenses": false,
-              "sourceMap": true,
-              "namedChunks": true
+              "sourceMap": true
             }
           },
           "defaultConfiguration": "production"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "employeeApp:build"
+          },
           "configurations": {
             "production": {
-              "buildTarget": "employeeApp:build:production"
+              "browserTarget": "employeeApp:build:production"
             },
             "development": {
-              "buildTarget": "employeeApp:build:development"
+              "browserTarget": "employeeApp:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -72,7 +72,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "employeeApp:build"
+            "browserTarget": "employeeApp:build"
           }
         },
         "test": {

@@ -19,7 +19,7 @@ query {
 `;
 
 const ADD_EMPLOYEE = gql`
-mutation addEmployee($name: String!,
+mutation createEmployee($name: String!,
   $dateOfBirth: String!,
   $city: String!,
   $salary: Float!,
